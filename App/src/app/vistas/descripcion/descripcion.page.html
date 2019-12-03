@@ -3,7 +3,7 @@
   <app-cabezera-usuario-retorno titulo={{Anuncio.Titulo}}  Imagen={{ImagenUser}}></app-cabezera-usuario-retorno>
 
   
-  <ion-img src="{{Imagen}}"></ion-img>
+  <ion-img src="{{Imagen}}" class="imagen"></ion-img>
 
   <!--    ICON OPTION-->
   <ion-grid class="line separation">
@@ -39,13 +39,13 @@
     </ion-card-header>
 
     <ion-card-content class="d-flex justify-content-center ">
-      <ion-item>
+      <ion-item class="textoBlanco">
         {{Anuncio.Descripcion}}
       </ion-item>
-      <ion-item>
+      <ion-item class="textoBlanco">
         {{Anuncio.Direccion}}
       </ion-item>
-      <ion-item>
+      <ion-item class="textoBlanco">
         {{Anuncio.Telefono}}
       </ion-item>
     </ion-card-content>
@@ -56,7 +56,7 @@
       <ion-row>
         <ion-col *ngIf="DatosPropietario.Imagen != ''" class="color-gray-bg" class="ion-margin">
           <div class="img-desing">
-            <img  src="{{DatosPropietario.Imagen}}" width="80%" />
+            <img  src="{{DatosPropietario.Imagen}}" class="perfil margeiz" />
           </div>
         </ion-col>
         <ion-col class="ion-margin">
