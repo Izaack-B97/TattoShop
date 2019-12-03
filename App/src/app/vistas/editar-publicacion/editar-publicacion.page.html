@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button mode="md" defaultHref="/principal-empresa" icon="ios-arrow-back"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Editar Publicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="padding">
+  
+  <img width="100%" src="{{Anuncio.Imagen}}" />
+  <div *ngIf="percentage | async as pct">
+    Subiendo: {{ pct | number }}%
+    <ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
+    <img width="100%" *ngIf="pct == 100" src="{{Anuncio.Imagen}}" />
+  </div>
+ 
+  <ion-item class="d-flex align-items-center">
+        <div class="fileUpload btn btn-primary">
+                <ion-button > Cambiar Imagen
+                    </ion-button>
+                <input
+                type="file"
+                class="upload"
+                (change)="uploadFile($event.target.files)"
+                />
+        </div>
+        
+  </ion-item>
+  <ion-item>
+      <ion-input [(ngModel)]="Anuncio.Titulo" name="Anuncio.Titulo" required type="text" placeholder="Titulo de la Promocion"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+        <ion-textarea [(ngModel)]="Anuncio.Descripcion" name="Anuncio.Descripcion" rows="9" cols="10" placeholder="Introdusca descripcion corta"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+            <ion-label>Direccion: </ion-label>
+            <ion-textarea [(ngModel)]="Anuncio.Direccion" name="Anuncio.Direccion" value="{{Anuncio.Direccion}}" type="number" ></ion-textarea>
+    </ion-item>
+
+  <ion-item>
+      <ion-label class="exclusivo">¿Es exclusivo?</ion-label>
+      <ion-toggle [(ngModel)]="Anuncio.Exclusivo" name="Anuncio.Exclusivo" value='false' color="success" checked></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+        <ion-label>Telefono:</ion-label>
+        <ion-textarea [(ngModel)]="Anuncio.Telefono" name="Anuncio.Telefono" value="{{Anuncio.Telefono}}" type="number" ></ion-textarea>
+  </ion-item>
+  
+  <ion-label>Alcance: {{Anuncio.Alcance}} Personas</ion-label>
+  <ion-item>
+      <ion-range [(ngModel)]="Anuncio.Alcance" name="Anuncio.Alcance" value='{{Anuncio.Alcance}}' min="3000" max="8000" color="success">
+          <ion-label class="alcance-start" slot="start">3000</ion-label>
+          <ion-label class="alcance-end" slot="end">8000</ion-label>
+      </ion-range>
+  </ion-item>
+
+  <ion-item>
+        <ion-label class="exclusivo">Activo</ion-label>
+        <ion-toggle [(ngModel)]="Anuncio.Activo" name="Anuncio.Activo" value='{{Anuncio.Activo}}' color="success" checked></ion-toggle>
+    </ion-item>
+
+  <ion-button color="success" (click)="guardarCambios()" expand="block">Guardar Cambios</ion-button>
+</ion-content>
+

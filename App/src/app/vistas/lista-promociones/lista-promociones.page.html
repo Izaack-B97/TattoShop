@@ -1,0 +1,24 @@
+<app-cabezera-usuario-retorno titulo="Lista Promociones" Imagen={{UsuarioActivo.Imagen}}></app-cabezera-usuario-retorno>
+
+<ion-content>
+  <div class="d-flex pl-1 pr-1 mt-1" justify-content-between>
+    <span>Todas las Promociones</span>
+
+    <ion-icon name="options"></ion-icon>
+  </div>
+
+  <div>
+    <ion-infinite-scroll>
+      <ion-infinite-scroll-content padding>
+        <ion-card *ngFor="let anuncio of Anuncios;">
+          <img (click)="abrirAnuncio(anuncio)" [src]="anuncio.Imagen" />
+          <hr />
+          <ion-card-subtitle class="d-flex justify-content-center ">
+            {{anuncio.Imagen}}
+          </ion-card-subtitle>
+        </ion-card>
+        
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Mis Tatuajes y Agenda</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-infinite-scroll>
+      <ion-card (click)="editarAnuncio(anuncio)" *ngFor="let anuncio of MisAnuncios" class="mb-1" >
+          <ion-card-header>
+              <ion-card-title class="d-flex justify-content-center">{{anuncio.Titulo}}</ion-card-title>
+              <ion-img class="img-desing" [src]="anuncio.Imagen"></ion-img>
+              
+          </ion-card-header>
+          <ion-card-content class="d-flex justify-content-center ">
+              <ion-item class="words-format">
+                    {{anuncio.Descripcion}}
+              </ion-item>
+          </ion-card-content>
+      </ion-card>
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+<ion-toolbar>
+  <ion-tabs>
+      <ion-tab-bar slot="bottom">
+          <ion-tab-button (click)="principalEmpresa()">
+              <ion-icon name="stats" color="primary"></ion-icon>
+          </ion-tab-button>
+          <ion-tab-button (click)="crear()">
+              <ion-icon name="create"></ion-icon>
+          </ion-tab-button>
+          <ion-tab-button (click)="chats()">
+              <ion-icon name="chatboxes"></ion-icon>
+          </ion-tab-button>
+          <ion-tab-button (click)="irPerfil()">
+              <ion-icon name="settings"></ion-icon>
+          </ion-tab-button>
+      </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

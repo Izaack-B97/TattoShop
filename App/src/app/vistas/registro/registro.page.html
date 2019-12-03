@@ -1,0 +1,129 @@
+<ion-header no-border>
+
+  <ion-toolbar>
+    
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" defaultHref="/principal" icon="ios-arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center> Registro </ion-title>
+
+  </ion-toolbar>
+  
+  
+</ion-header>
+
+
+
+<ion-content padding>
+  
+<form class="mt-1">
+    <ion-list class="ion-no-margin">
+
+        
+        <ion-item>
+            <ion-label class="input-label" position="stacked">Nombre</ion-label>
+            <ion-input [(ngModel)]="nombre" name="nombre" type="text" placeholder="Nombre de Usuario"></ion-input>
+        </ion-item>
+
+        <ion-item class="d-flex align-items-center">
+                <div  class="fileUpload btn btn-primary">
+                        <ion-button >
+                                <ion-icon name="attach"></ion-icon> Agregar Foto de Perfil
+                            </ion-button>
+                        <input
+                        type="file"
+                        accept="image/*" capture
+                        class="upload"
+                        (change)="uploadFile($event.target.files)"
+                        />
+                </div>
+                <ion-card text-center *ngIf="percentage | async as pct">
+                        <ion-card-content>
+                            <div>
+                                Subiendo: {{ pct | number }}%
+                                <ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
+                                
+                        </div>
+                        <img *ngIf="pct == 100" src="{{imagen}}" height="50px" width="50px"/>
+                        </ion-card-content>
+                </ion-card>
+        </ion-item>
+        
+
+
+        <ion-item>
+            <ion-label>Estado</ion-label>
+            <ion-select [(ngModel)]="estado" name="estado"  value="{{estado}}" okText="seleccionar" cancelText="Cancelar" (ionChange)='cambioEstado(estado)'>
+                <ion-select-option  *ngFor="let est of Estados.Estado">{{est}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label>Ciudad</ion-label>
+            <ion-select [(ngModel)]="ciudad" name="ciudad"  value="{{ciudad}}" okText="seleccionar" cancelText="Cancelar">
+                <ion-select-option *ngFor="let municipio of Municipios.Municipio">{{municipio}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="input-label" position="stacked">Numero Telefonico</ion-label>
+            <ion-input [(ngModel)]="telefono" name="telefono" type="number" placeholder="Celular"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Genero</ion-label>
+            <ion-select [(ngModel)]="genero" name="genero" value="(no especificar)" okText="seleccionar" cancelText="Cancelar">
+                <ion-select-option>Masculino</ion-select-option>
+                <ion-select-option>Femenino</ion-select-option>
+                <ion-select-option>(no especificar)</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label>Categoría</ion-label>
+            <ion-select [(ngModel)]="categoria" name="categoria"  value="{{categoria}}" okText="seleccionar" cancelText="Cancelar">
+                <ion-select-option *ngFor="let cat of Categorias.Categoria">{{cat}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Tipo de Cuenta</ion-label>
+            <ion-select [(ngModel)]="tipoCuenta" name="tipoCuenta" value="USUARIO" okText="seleccionar" cancelText="Cancelar">
+                <ion-select-option>USUARIO</ion-select-option>
+                <ion-select-option>EMPRESA</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="tipoCuenta == 'EMPRESA'">
+                <ion-label class="input-label" position="stacked">Direccion</ion-label>
+                <ion-input [(ngModel)]="direccion" name="direccion" type="text" placeholder="Direccion del Negocio"></ion-input>
+        </ion-item>
+
+
+
+        <ion-item>
+            <ion-label class="input-label" position="stacked">Email</ion-label>
+            <ion-input [(ngModel)]="email" name="email" type="text" placeholder="ejemplo@gmail.com"></ion-input>
+        </ion-item>
+        <ion-item class="mt-1">
+            <ion-label class="input-label" position="stacked">Contraseña</ion-label>
+            <ion-input [(ngModel)]="password" name="password" type="password" placeholder="******"></ion-input>
+        </ion-item>
+
+        <ion-item class="mt-1">
+          <ion-label class="input-label" position="stacked"> Verificar Contraseña</ion-label>
+          <ion-input [(ngModel)]="Verificadapassword" name="Verificadapassword" type="password" placeholder="******"></ion-input>
+        </ion-item>
+
+    </ion-list>
+</form>
+
+<ion-button (click)="registrarUsuario()" mode="md" shape="round" class="mb-2 mt-1 login-button" color="success" expand="block">
+    REGISTRARSE
+</ion-button>
+
+
+</ion-content>
+
+
