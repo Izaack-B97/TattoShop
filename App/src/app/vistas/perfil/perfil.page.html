@@ -11,28 +11,11 @@
 
             <ion-col class="p-0">
                 <ion-card mode="ios" class="m-0 p-1" color="success">
-                    <h2 class="text-white">Cambia Tu ZONA </h2>
+                    <h2 class="text-white">Datos de {{UsuarioActivo.Nombre}} </h2>
                 </ion-card>
             </ion-col>
         </ion-row>
 
-            <ion-item>
-                <ion-label>Ciudad</ion-label>
-                <ion-select [(ngModel)]="ciudad" name="ciudad"  value="{{ciudad}}" okText="seleccionar" cancelText="Cancelar" (ionChange)='cambioEstado(ciudad)'>
-                    <ion-select-option  *ngFor="let c of Ciudades.Estado">{{c}}</ion-select-option>
-                </ion-select>
-            </ion-item>
-        
-            <ion-item>
-                <ion-label>Zona</ion-label>
-                <ion-select [(ngModel)]="zona" name="zona"  value="{{zona}}" okText="seleccionar" cancelText="Cancelar">
-                    <ion-select-option *ngFor="let z of Zonas.Municipio;let i=index">{{z}}</ion-select-option>
-                </ion-select>
-            </ion-item>
-
-            <ion-button (click)="Actualizar()" mode="md" shape="round" class="mb-2  login-button" color="success" expand="block">
-                    Actualizar Datos
-            </ion-button>
 
         <ion-row *ngFor="let brand of brands" (click)="enviarCorreo()">
             <ion-col justify-content-between>

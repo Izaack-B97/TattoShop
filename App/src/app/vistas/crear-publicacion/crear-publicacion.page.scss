@@ -9,6 +9,19 @@
   ion-button {
     --border-radius: 1rem;
   }
+  .cabecera {
+    color: aliceblue !important;
+    padding: 5px;
+  }
+
+  .contenedor {
+    height: 600px;
+    width: 1300px;
+    margin-left: 130px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+  }
   
   .d-flex ion-button {
     width: 10rem;

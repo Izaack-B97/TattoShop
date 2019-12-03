@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header class="cabecera">
   <ion-toolbar>
-      <ion-title>Mis Tatuajes y Agenda</ion-title>
+      <ion-title class="cabecera">Mis Tatuajes y Agenda</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -11,10 +11,7 @@
               <ion-img class="img-desing" [src]="anuncio.Imagen"></ion-img>
               
           </ion-card-header>
-          <ion-card-content class="d-flex justify-content-center ">
-              <ion-item class="words-format">
-                    {{anuncio.Descripcion}}
-              </ion-item>
+          <ion-card-content class="d-flex justify-content-center cabecera">
           </ion-card-content>
       </ion-card>
       <ion-infinite-scroll-content></ion-infinite-scroll-content>

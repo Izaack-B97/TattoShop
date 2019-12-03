@@ -6,13 +6,31 @@ h1 {
   text-align: center;
   color: #0967cb;
 }
+.verde {
+  color: rgb(13, 240, 13) !important;
+}
+
+
+.contenidogeneral {
+  display: inline-block;
+  justify-content: center;
+  margin-left: 590px;
+  margin-top: 110px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+ion-input {
+  color: #ffffff;
+}
 
 .logo {
   width: 50vw;
 }
 
 .input-label {
-  --color: #0967cb;
+  --color: #ffffff;
 }
 
 .forget-label {
@@ -48,7 +66,7 @@ h1 {
 }
 
 .register-label span {
-  color: #096f96;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -57,6 +75,5 @@ h1 {
 }
 
 .contenedor  {
-  background: white;
   width: 300px;
 }

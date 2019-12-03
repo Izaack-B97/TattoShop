@@ -8,10 +8,19 @@
   }
 
   ion-card {
+    background-color: darkgrey;
     width: 300px;
     height: 300px;
     position: relative;
     text-align: center;
+  }
+  .fondoBlanco {
+    background-color: darkgrey !important;
+  }
+
+  .cabecera {
+    color: aliceblue !important;
+    padding: 5px;
   }
   
   .title-card {
