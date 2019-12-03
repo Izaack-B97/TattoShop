@@ -1,0 +1,84 @@
+<ion-content>
+
+  <app-cabezera-usuario-retorno titulo={{Anuncio.Titulo}}  Imagen={{ImagenUser}}></app-cabezera-usuario-retorno>
+
+  
+  <ion-img src="{{Imagen}}"></ion-img>
+
+  <!--    ICON OPTION-->
+  <ion-grid class="line separation">
+    <ion-row>
+      <ion-col
+        size="3"
+        class="d-flex justify-content-center icon-option icon-send"
+      >
+        <ion-icon mode="ios" name="send" (click)="abrirChat()"></ion-icon>
+        <ion-label class="color-gray-txt tama"> Chat</ion-label>
+      </ion-col>
+      <ion-col
+        size="3"
+        class="d-flex justify-content-center icon-option icon-compass"
+      >
+        <ion-icon mode="ios" name="compass" (click)="abrirMaps()"></ion-icon>
+        <ion-label class="color-gray-txt tama"> Ruta</ion-label>
+      </ion-col>
+      <ion-col
+        size="3"
+        class="d-flex justify-content-center icon-option icon-star"
+      >
+        <ion-icon mode="ios" name="calendar" (click)="abrirLlamadas()"></ion-icon>
+        <ion-label class="color-gray-txt tama"> Agendar</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--    PROMOTION-->
+  <ion-card>
+    
+    <ion-card-header>
+    </ion-card-header>
+
+    <ion-card-content class="d-flex justify-content-center ">
+      <ion-item>
+        {{Anuncio.Descripcion}}
+      </ion-item>
+      <ion-item>
+        {{Anuncio.Direccion}}
+      </ion-item>
+      <ion-item>
+        {{Anuncio.Telefono}}
+      </ion-item>
+    </ion-card-content>
+
+  
+
+  <ion-grid class="separation">
+      <ion-row>
+        <ion-col *ngIf="DatosPropietario.Imagen != ''" class="color-gray-bg" class="ion-margin">
+          <div class="img-desing">
+            <img  src="{{DatosPropietario.Imagen}}" width="80%" />
+          </div>
+        </ion-col>
+        <ion-col class="ion-margin">
+          <div class="d-flex justify-content-center" >
+            <div class="d-flex flex-column mb-1">
+              <ion-label class="text-info">{{DatosPropietario.Nombre}}</ion-label>
+              <ion-label class="text-info">{{DatosPropietario.Ciudad}}, {{DatosPropietario.Zona}}</ion-label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <ion-icon
+              class="color-gray-txt client-heart"
+              mode="ios"
+              name="heart-empty"
+            ></ion-icon>
+            <ion-label class="color-gray-txt">3541 Clientes</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
+
+</ion-content>

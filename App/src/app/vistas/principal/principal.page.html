@@ -1,0 +1,44 @@
+<app-cabezera-usuario (click)="irPerfil()" Nombre={{UsuarioActivo.Nombre}} Imagen={{UsuarioActivo.Imagen}}></app-cabezera-usuario>
+
+<ion-content padding>
+
+    <div class="d-flex pl-1 pr-1" justify-content-between>
+        <h5 class="mt-0">Tatuajes Exclusivos</h5>
+        <span class="view-more text-gray" (click)="abrirLista()">Ver más</span>
+    </div>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="4" *ngFor="let anuncio of AnunciosExclusivos;let i=index">
+                <ion-img (click)="abrirAnuncio(anuncio)" *ngIf="5>i" [src]="anuncio.Imagen"></ion-img>
+            </ion-col>
+            <ion-col (click)="abrirLista()" >
+                <ion-card color="success" class="d-flex m-0" style="height: 100%" justify-content-center
+                          align-items-center><span class="more-span">Ver más ...</span>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="d-flex pl-1 pr-1 mt-1" justify-content-between>
+        <h5 class="mt-0">Tatuajes Normales</h5>
+    </div>
+
+    <ion-infinite-scroll>
+        <ion-infinite-scroll-content>
+            <ion-grid>
+                <ion-card *ngFor="let anuncio of AnunciosGenerales">
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-img (click)="abrirAnuncio(anuncio)" [src]="anuncio.Imagen"></ion-img>
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
+            </ion-grid>
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+      
+
+</ion-content>
+
+

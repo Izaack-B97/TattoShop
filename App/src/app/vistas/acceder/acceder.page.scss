@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
+
+h1 {
+  font-family: 'Mansalva', cursive;
+  font-size: 10vw;
+  text-align: center;
+  color: #0967cb;
+}
+
+.logo {
+  width: 50vw;
+}
+
+.input-label {
+  --color: #0967cb;
+}
+
+.forget-label {
+  font-size: 0.8rem;
+}
+
+.btn-fb {
+  --background: #3b5998;
+  font-size: 0.9rem;
+}
+
+.btn-tw {
+  --background: #00acee;
+  font-size: 0.9rem;
+}
+
+.or-line {
+  border-bottom: 1px solid #c3c3c3;
+  line-height: 0.1rem;
+}
+
+.or-line span {
+  position: absolute;
+  background: white;
+  padding: 0 10px;
+  color: #016e98;
+  font-size: 0.9rem;
+}
+
+.register-label {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.register-label span {
+  color: #096f96;
+  font-weight: bold;
+}
+
+.login-button {
+  font-size: 0.9rem;
+}
+
+.contenedor  {
+  background: white;
+  width: 300px;
+}

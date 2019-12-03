@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Agregar Tatuaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="padding">
+  <ion-item>
+      <ion-input [(ngModel)]="titulo" name="titulo" required type="text" placeholder="Titulo de la Promocion"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-textarea [(ngModel)]="descripcion" name="descripcion" rows="9" cols="10" placeholder="Introdusca descripcion corta"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+      <ion-label class="exclusivo">¿Es exclusivo?</ion-label>
+      <ion-toggle [(ngModel)]="exclusivo" name="exclusivo" value='false' color="success" checked></ion-toggle>
+  </ion-item>
+  <ion-card text-center *ngIf="percentage | async as pct">
+        <ion-card-content>
+            <div>
+                Subiendo: {{ pct | number }}%
+                <ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
+                
+        </div>
+        </ion-card-content>
+        <img  *ngIf="pct == 100" src="{{imagen}}" />
+  </ion-card>
+ 
+  <ion-item class="d-flex align-items-center">
+        <div *ngIf="!percentage" class="fileUpload btn btn-primary">
+                <ion-button >
+                        <ion-icon name="attach"></ion-icon>
+                    </ion-button>
+                <input
+                type="file"
+                class="upload"
+                (change)="uploadFile($event.target.files)"
+                />
+        </div>
+        
+  </ion-item>
+
+  <ion-item>
+        <ion-label>Telefono:</ion-label>
+        <ion-textarea [(ngModel)]="telefono" name="telefono" value="{{telefono}}" type="number" ></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Alcance: {{alcance}} Personas</ion-label>
+      <ion-range [(ngModel)]="alcance" name="alcance"  min="3000" max="8000" color="success">
+          <ion-label class="alcance-start" slot="start">3000</ion-label>
+          <ion-label class="alcance-end" slot="end">8000</ion-label>
+      </ion-range>
+  </ion-item>
+  <ion-button color="success" (click)="crearPublicacion()" expand="block">Publicar tatuaje</ion-button>
+</ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+      <ion-tab-bar slot="bottom">
+                <ion-tab-button (click)="principalEmpresa()">
+                    <ion-icon name="stats"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button (click)="crear()">
+                    <ion-icon name="create"  color="primary"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button (click)="chats()">
+                    <ion-icon name="chatboxes"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button (click)="irPerfil()">
+                    <ion-icon name="settings"></ion-icon>
+                </ion-tab-button>
+      </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
+

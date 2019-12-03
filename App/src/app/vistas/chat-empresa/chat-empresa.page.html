@@ -1,0 +1,58 @@
+<app-cabezera-usuario-retorno titulo="Chat" Imagen={{DatosChat.UsuarioDOSImagen}}></app-cabezera-usuario-retorno>
+
+<ion-content>
+    <div class="chat-box">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="2">
+                    <ion-img class="company-logo" src="{{DatosPropietario.Imagen}}"></ion-img>
+                </ion-col>
+                <ion-col size="10" class="d-flex flex-column">
+                    <span>{{DatosPropietario.Nombre}}</span>
+                    <span class="location-text mt-1"><span class="gray-color-text">{{DatosPropietario.Ciudad}}</span>, {{DatosPropietario.Estado}}</span>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col class="d-flex justify-content-center">
+                    <span class="location-text gray-color-text">Septiembre 16,19</span>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <div *ngFor="let mensaje of Mensajes">
+            <ion-grid>
+                <ion-row>
+                    <ion-col *ngIf="mensaje.Usuario === UsuarioUID" size="2" class="d-flex align-items-center justify-content-center">
+                        <img class="rounded-circle chat-img" src="{{DatosChat.UsuarioDOSImagen}}">
+                    </ion-col>
+                    <ion-col size="10" class="d-flex align-items-center">
+                        <div class="{{mensaje.Clase}}">
+                            <span>{{mensaje.Mensaje}}</span>
+                        </div>
+                    </ion-col>
+                    <ion-col *ngIf="mensaje.Usuario === PropietarioUID" size="2" class="d-flex align-items-center justify-content-center">
+                        <img class="chat-img" src="{{DatosChat.UsuarioUNOImagen}}">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+        <div class="send-msg-box d-flex align-items-center justify-content-center">
+            <ion-card class="card" no-padding no-margin>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="10" class="d-flex align-items-center justify-content-center">
+                            <ion-input [(ngModel)]="mensaje" name="mensaje" placeholder="Escribe tu mensaje..."></ion-input>
+                        </ion-col>
+                        <ion-col size="2" class="d-flex align-items-center justify-content-center" (click)="enviarMensaje()">
+                            <ion-icon name="send" class="send-msg-icon"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+        </div>
+    </div>
+</ion-content>

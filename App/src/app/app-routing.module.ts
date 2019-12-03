@@ -1,44 +1,30 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutorizadoGuard } from './guardianes/autorizado.guard';
+import { NoAutorizadoGuard } from './guardianes/no-autorizado.guard';
+import { RedireccionGuard } from './guardianes/redireccion.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'galeria-estudio', pathMatch: 'full' },
-  {
-    path: 'galeria-estudio',
-    loadChildren: () => import('./vistas/galeria-estudio/galeria-estudio.module').then( m => m.GaleriaEstudioPageModule)
-  },
-  {
-    path: 'galeria-tatuador',
-    loadChildren: () => import('./vistas/galeria-tatuador/galeria-tatuador.module').then( m => m.GaleriaTatuadorPageModule)
-  },
-  {
-    path: 'acceder',
-    loadChildren: () => import('./vistas/acceder/acceder.module').then( m => m.AccederPageModule)
-  },
-  {
-    path: 'registrarse',
-    loadChildren: () => import('./vistas/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
-  },
-  {
-    path: 'administracion',
-    loadChildren: () => import('./vistas/administracion/administracion.module').then( m => m.AdministracionPageModule)
-  },
-  {
-    path: 'agendar',
-    loadChildren: () => import('./vistas/agendar/agendar.module').then( m => m.AgendarPageModule)
-  },
-  {
-    path: 'terminos',
-    loadChildren: () => import('./vistas/terminos/terminos.module').then( m => m.TerminosPageModule)
-  },
-  {
-    path: 'pago',
-    loadChildren: () => import('./vistas/pago/pago.module').then( m => m.PagoPageModule)
-  },
-  {
-    path: 'galeria-general',
-    loadChildren: () => import('./vistas/galeria-general/galeria-general.module').then( m => m.GaleriaGeneralPageModule)
-  },
+  { path: '', redirectTo: 'acceder', pathMatch: 'full' },
+  { path: 'principal', loadChildren: './vistas/principal/principal.module#PrincipalPageModule', canActivate: [AutorizadoGuard] },
+  { path: 'acceder', loadChildren: './vistas/acceder/acceder.module#AccederPageModule', canActivate: [NoAutorizadoGuard] },
+  { path: 'chat', loadChildren: './vistas/chat/chat.module#ChatPageModule', canActivate: [AutorizadoGuard] },
+  // tslint:disable-next-line: max-line-length
+  { path: 'crear-publicacion', loadChildren: './vistas/crear-publicacion/crear-publicacion.module#CrearPublicacionPageModule', canActivate: [AutorizadoGuard] },
+  { path: 'descripcion', loadChildren: './vistas/descripcion/descripcion.module#DescripcionPageModule', canActivate: [AutorizadoGuard] },
+  { path: 'perfil', loadChildren: './vistas/perfil/perfil.module#PerfilPageModule', canActivate: [AutorizadoGuard] },
+  { path: 'lista-chat', loadChildren: './vistas/lista-chat/lista-chat.module#ListaChatPageModule', canActivate: [AutorizadoGuard] },
+  // tslint:disable-next-line: max-line-length
+  { path: 'lista-chat-empresa', loadChildren: './vistas/lista-chat-empresa/lista-chat-empresa.module#ListaChatEmpresaPageModule', canActivate: [AutorizadoGuard] },
+  // tslint:disable-next-line: max-line-length
+  { path: 'lista-promociones', loadChildren: './vistas/lista-promociones/lista-promociones.module#ListaPromocionesPageModule', canActivate: [AutorizadoGuard] },
+  // tslint:disable-next-line: max-line-length
+  { path: 'principal-empresa', loadChildren: './vistas/principal-empresa/principal-empresa.module#PrincipalEmpresaPageModule', canActivate: [AutorizadoGuard] },
+  { path: 'registro', loadChildren: './vistas/registro/registro.module#RegistroPageModule', canActivate: [NoAutorizadoGuard] },
+  { path: 'chat-empresa', loadChildren: './vistas/chat-empresa/chat-empresa.module#ChatEmpresaPageModule', canActivate: [AutorizadoGuard] },
+  // tslint:disable-next-line: max-line-length
+  { path: 'editar-publicacion', loadChildren: './vistas/editar-publicacion/editar-publicacion.module#EditarPublicacionPageModule', canActivate: [AutorizadoGuard] },
+
 ];
 
 @NgModule({

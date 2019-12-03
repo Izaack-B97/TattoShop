@@ -1,19 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AccederPageRoutingModule } from './acceder-routing.module';
-
 import { AccederPage } from './acceder.page';
+import {ComponentesModule} from '../../componentes/componentes.module';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: AccederPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AccederPageRoutingModule
+    RouterModule.forChild(routes),
+    ComponentesModule
   ],
   declarations: [AccederPage]
 })

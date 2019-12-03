@@ -1,0 +1,53 @@
+* {
+    font-family: Tahoma;
+  }
+  
+  ion-item {
+    --box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-button {
+    --border-radius: 1rem;
+  }
+  
+  .d-flex ion-button {
+    width: 10rem;
+    height: 2rem;
+    font-size: 1.3rem;
+  }
+  
+  .d-flex ion-img {
+    height: 2.5rem;
+    width: 4rem;
+  }
+  
+  .exclusivo {
+    color: #10dc60;
+    font-weight: 900;
+  }
+  
+  .alcance-start {
+    font-weight: bolder;
+  }
+  
+  .alcance-end {
+    font-weight: bolder;
+  }
+
+  .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    background-color: #10dc60;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

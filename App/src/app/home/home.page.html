@@ -1,0 +1,40 @@
+<ion-content padding>
+    
+  <div class="d-flex" justify-content-center>
+      <ion-img class="logo" src="/assets/logo.jpg"></ion-img>
+  </div>
+  <form class="mt-1">
+      <ion-list class="ion-no-margin">
+          <ion-item>
+              <ion-label class="input-label" position="stacked">Email</ion-label>
+              <ion-input [(ngModel)]="email" name="email" required type="text" placeholder="ejemplo@gmail.com"></ion-input>
+          </ion-item>
+          <ion-item class="mt-1">
+              <ion-label class="input-label" position="stacked">Contraseña</ion-label>
+              <ion-input [(ngModel)]="password" name="password" required type="password" placeholder="******"></ion-input>
+          </ion-item>
+      </ion-list>
+  </form>
+  <div class="mt-1 mb-1 d-flex " justify-content-end>
+      <span class="forget-label text-gray">¿Olvidaste la contraseña?</span>
+  </div>
+  <ion-button (click)="iniciarSesion()" mode="md" shape="round" class="mb-2 mt-1 login-button" color="success" expand="block">
+      INICIAR SESIÓN
+  </ion-button>
+  <div class="or-line d-flex" justify-content-center>
+      <span>ó ingresa con </span>
+  </div>
+  <ion-button mode="md" shape="round" class="btn-fb mt-2" expand="block">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <span class="ml-1">INICIAR CON FACEBOOK</span>
+  </ion-button>
+  <ion-button mode="md" shape="round" class="btn-tw mt-1" expand="block" routerLink="/pricipal-empresa">
+      <ion-icon name="logo-twitter"></ion-icon>
+      <span class="ml-1 mr-1">INICIAR CON TWITTER</span>
+  </ion-button>
+  <div class="d-flex mt-1" justify-content-center>
+      <span class="register-label" routerLink="/registro">¿Aún no tienes una Cuenta? <span>REGISTRATE</span></span>
+  </div>
+
+  
+</ion-content>

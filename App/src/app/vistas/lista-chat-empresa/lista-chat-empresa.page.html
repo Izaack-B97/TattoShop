@@ -1,0 +1,41 @@
+
+<ion-content padding>
+  <ion-list lines="none" mode="md">
+    
+    <ion-item (click)="abrirChat(chat.Usuario)" mode="md" class="mb-1" *ngFor="let chat of DatosChats">
+      <ion-avatar slot="start">
+        <ion-img *ngIf="chat.UsuarioImagen !== ''" src="{{chat.UsuarioImagen}}"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <div>{{chat.UsuarioNombre}}</div>
+        <div class="text-gray preview-message">chat Activo</div>
+      </ion-label>
+      <ion-note slot="end" color="primary">
+      </ion-note>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+
+
+<ion-toolbar>
+<ion-tabs>
+  
+  <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="principalEmpresa()">
+          <ion-icon name="stats"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="crear()">
+          <ion-icon name="create"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="chats()">
+          <ion-icon name="chatboxes" color="primary"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="irPerfil()">
+          <ion-icon name="settings"></ion-icon>
+      </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
+</ion-toolbar>

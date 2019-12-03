@@ -1,0 +1,34 @@
+<app-cabezera-usuario-retorno titulo="Mensajes"></app-cabezera-usuario-retorno>
+
+<ion-content padding>
+    <ion-list lines="none" mode="md">
+        <!--WITH BADGE-->
+        <ion-item routerLink="/chat" mode="md" class="mb-1" *ngFor="let message of [1, 2, 3, 4]">
+            <ion-avatar slot="start">
+                <ion-img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"></ion-img>
+            </ion-avatar>
+            <ion-label>
+                <div>Borja Muñoz</div>
+                <div class="text-gray preview-message">Lorem ipsum dolor sit amet</div>
+            </ion-label>
+            <ion-note slot="end" color="primary">
+                <span class="text-gray mr-1">12:90</span>
+                <span class="messages-badge">3</span>
+            </ion-note>
+        </ion-item>
+
+        <!--WITHOUT BADGE-->
+        <ion-item routerLink="/chat" mode="md" class="mt-1">
+            <ion-avatar slot="start">
+                <ion-img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"></ion-img>
+            </ion-avatar>
+            <ion-label>
+                <div>Borja Muñoz</div>
+                <div class="text-gray preview-message">Lorem ipsum dolor sit amet</div>
+            </ion-label>
+            <ion-note slot="end" color="primary">
+                <span class="text-gray mr-1">12:90</span>
+            </ion-note>
+        </ion-item>
+    </ion-list>
+</ion-content>
